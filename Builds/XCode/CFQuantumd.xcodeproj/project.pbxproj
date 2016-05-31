@@ -1,0 +1,832 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3402FD5C1B65DDF6009EC7D1 /* thrift2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3402FD5B1B65DDF6009EC7D1 /* thrift2.cpp */; };
+		3402FD5F1B65DF6A009EC7D1 /* thrift3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3402FD5E1B65DF6A009EC7D1 /* thrift3.cpp */; };
+		3402FD691B65E295009EC7D1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3402FD681B65E295009EC7D1 /* libz.dylib */; };
+		3402FD6B1B65E299009EC7D1 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3402FD6A1B65E299009EC7D1 /* libssl.dylib */; };
+		3402FD6D1B65E2A1009EC7D1 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3402FD6C1B65E2A1009EC7D1 /* libcrypto.dylib */; };
+		3402FD721B65E373009EC7D1 /* libdl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3402FD711B65E373009EC7D1 /* libdl.dylib */; };
+		3414533F1A19D8390005FD6D /* ripple.proto in Sources */ = {isa = PBXBuildFile; fileRef = 8424474F1A13B30200A37710 /* ripple.proto */; };
+		341495D21BA81FA9006EFD47 /* app_ledger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495CC1BA81FA9006EFD47 /* app_ledger.cpp */; };
+		341495D41BA81FA9006EFD47 /* app_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495CD1BA81FA9006EFD47 /* app_main.cpp */; };
+		341495D61BA81FA9006EFD47 /* app_misc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495CE1BA81FA9006EFD47 /* app_misc.cpp */; };
+		341495D81BA81FA9006EFD47 /* app_paths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495CF1BA81FA9006EFD47 /* app_paths.cpp */; };
+		341495DA1BA81FA9006EFD47 /* app_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495D01BA81FA9006EFD47 /* app_tests.cpp */; };
+		341495DC1BA81FA9006EFD47 /* app_tx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495D11BA81FA9006EFD47 /* app_tx.cpp */; };
+		341495E51BA8201C006EFD47 /* ledger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495DE1BA8201C006EFD47 /* ledger.cpp */; };
+		341495E71BA8201C006EFD47 /* secp256k1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495DF1BA8201C006EFD47 /* secp256k1.cpp */; };
+		341495E91BA8201C006EFD47 /* soci_ripple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495E01BA8201C006EFD47 /* soci_ripple.cpp */; };
+		341495EB1BA8201C006EFD47 /* soci.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495E11BA8201C006EFD47 /* soci.cpp */; };
+		341495ED1BA8201C006EFD47 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495E21BA8201C006EFD47 /* test.cpp */; };
+		341495EF1BA8201C006EFD47 /* websocket02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495E31BA8201C006EFD47 /* websocket02.cpp */; };
+		341495F11BA8201C006EFD47 /* websocket04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341495E41BA8201C006EFD47 /* websocket04.cpp */; };
+		341B4C361B65C8C800A9E6FF /* thrift.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341B4C351B65C8C800A9E6FF /* thrift.cpp */; };
+		344C10131BA97388004EE061 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344C100F1BA97369004EE061 /* AppKit.framework */; };
+		344C10141BA97388004EE061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344C10101BA97369004EE061 /* Foundation.framework */; };
+		34707C071BB0F2A4003D6201 /* lz4.c in Sources */ = {isa = PBXBuildFile; fileRef = 525A39B41A9DC46E00847815 /* lz4.c */; };
+		34971DC21BFDD3A600EA2870 /* unl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34971DC11BFDD3A600EA2870 /* unl.cpp */; };
+		529087BC1A7F1BE8008CB1B9 /* hash_unity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 529087BB1A7F1BE8008CB1B9 /* hash_unity.cpp */; };
+		52A23FF11A7A4543009BB3F0 /* protocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52A23FE21A7A4501009BB3F0 /* protocol.cpp */; };
+		52A23FF21A7A4543009BB3F0 /* server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52A23FE91A7A4501009BB3F0 /* server.cpp */; };
+		52A23FF31A7A4587009BB3F0 /* crypto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52A23FD51A7A4501009BB3F0 /* crypto.cpp */; };
+		52A240641A7B7E8D009BB3F0 /* git_id.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52A240611A7B7E8D009BB3F0 /* git_id.cpp */; };
+		52A240651A7B7E8D009BB3F0 /* shamap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52A240631A7B7E8D009BB3F0 /* shamap.cpp */; };
+		52A240B41A7B8A9E009BB3F0 /* ed25519.c in Sources */ = {isa = PBXBuildFile; fileRef = 52A240B31A7B8A9E009BB3F0 /* ed25519.c */; settings = {COMPILER_FLAGS = "-I../../src/ed25519-donna"; }; };
+		84244BBC1A13B36C00A37710 /* basics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842448191A13B30300A37710 /* basics.cpp */; };
+		84244BBD1A13B36C00A37710 /* beast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8424481A1A13B30300A37710 /* beast.cpp */; };
+		84244BBE1A13B36C00A37710 /* beastc.c in Sources */ = {isa = PBXBuildFile; fileRef = 8424481B1A13B30300A37710 /* beastc.c */; };
+		84244BBF1A13B36C00A37710 /* beastobjc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8424481C1A13B30300A37710 /* beastobjc.mm */; settings = {COMPILER_FLAGS = "-DOBJC_OLD_DISPATCH_PROTOTYPES"; }; };
+		84244BC11A13B36C00A37710 /* core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8424481E1A13B30300A37710 /* core.cpp */; };
+		84244BC51A13B36C00A37710 /* json.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842448251A13B30300A37710 /* json.cpp */; };
+		84244BC71A13B36C00A37710 /* net.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842448291A13B30300A37710 /* net.cpp */; };
+		84244BC81A13B36C00A37710 /* nodestore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8424482B1A13B30300A37710 /* nodestore.cpp */; settings = {COMPILER_FLAGS = "-I../../src/leveldb/include -I../../src/rocksdb2/include -I../../src/snappy/snappy -I../../src/snappy/config"; }; };
+		84244BC91A13B36C00A37710 /* overlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8424482C1A13B30300A37710 /* overlay.cpp */; };
+		84244BCA1A13B36C00A37710 /* peerfinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8424482D1A13B30300A37710 /* peerfinder.cpp */; };
+		84244BCB1A13B36C00A37710 /* protobuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8424482E1A13B30300A37710 /* protobuf.cpp */; };
+		84244BCC1A13B36C00A37710 /* resource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8424482F1A13B30300A37710 /* resource.cpp */; };
+		84244BCD1A13B36C00A37710 /* ripple.proto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842448311A13B30300A37710 /* ripple.proto.cpp */; };
+		84244BCE1A13B36C00A37710 /* rocksdb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842448321A13B30300A37710 /* rocksdb.cpp */; settings = {COMPILER_FLAGS = "-I../../src/rocksdb2 -I../../src/rocksdb2/include -I../../src/snappy/snappy -I../../src/snappy/config"; }; };
+		84244BCF1A13B36C00A37710 /* rpcx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842448341A13B30300A37710 /* rpcx.cpp */; };
+		84244BD11A13B36C00A37710 /* snappy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842448371A13B30300A37710 /* snappy.cpp */; settings = {COMPILER_FLAGS = " -I../../src/snappy/snappy -I../../src/snappy/config"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		3414534E1A19D8B50005FD6D /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.proto";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).pb.h",
+			);
+			script = "PATH=${PATH}:/usr/local/bin\nprotoc -I${INPUT_FILE_DIR} ${INPUT_FILE_PATH} --cpp_out=${DERIVED_FILE_DIR}";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		842440521A13B2B900A37710 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3402FD5B1B65DDF6009EC7D1 /* thrift2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thrift2.cpp; path = ../../src/ripple/unity/thrift2.cpp; sourceTree = "<group>"; };
+		3402FD5E1B65DF6A009EC7D1 /* thrift3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thrift3.cpp; path = ../../src/ripple/unity/thrift3.cpp; sourceTree = "<group>"; };
+		3402FD681B65E295009EC7D1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		3402FD6A1B65E299009EC7D1 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
+		3402FD6C1B65E2A1009EC7D1 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		3402FD711B65E373009EC7D1 /* libdl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libdl.dylib; path = usr/lib/libdl.dylib; sourceTree = SDKROOT; };
+		341495CC1BA81FA9006EFD47 /* app_ledger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = app_ledger.cpp; path = ../../src/ripple/unity/app_ledger.cpp; sourceTree = "<group>"; };
+		341495CD1BA81FA9006EFD47 /* app_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = app_main.cpp; path = ../../src/ripple/unity/app_main.cpp; sourceTree = "<group>"; };
+		341495CE1BA81FA9006EFD47 /* app_misc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = app_misc.cpp; path = ../../src/ripple/unity/app_misc.cpp; sourceTree = "<group>"; };
+		341495CF1BA81FA9006EFD47 /* app_paths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = app_paths.cpp; path = ../../src/ripple/unity/app_paths.cpp; sourceTree = "<group>"; };
+		341495D01BA81FA9006EFD47 /* app_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = app_tests.cpp; path = ../../src/ripple/unity/app_tests.cpp; sourceTree = "<group>"; };
+		341495D11BA81FA9006EFD47 /* app_tx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = app_tx.cpp; path = ../../src/ripple/unity/app_tx.cpp; sourceTree = "<group>"; };
+		341495DE1BA8201C006EFD47 /* ledger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ledger.cpp; path = ../../src/ripple/unity/ledger.cpp; sourceTree = "<group>"; };
+		341495DF1BA8201C006EFD47 /* secp256k1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = secp256k1.cpp; path = ../../src/ripple/unity/secp256k1.cpp; sourceTree = "<group>"; };
+		341495E01BA8201C006EFD47 /* soci_ripple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = soci_ripple.cpp; path = ../../src/ripple/unity/soci_ripple.cpp; sourceTree = "<group>"; };
+		341495E11BA8201C006EFD47 /* soci.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = soci.cpp; path = ../../src/ripple/unity/soci.cpp; sourceTree = "<group>"; };
+		341495E21BA8201C006EFD47 /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test.cpp; path = ../../src/ripple/unity/test.cpp; sourceTree = "<group>"; };
+		341495E31BA8201C006EFD47 /* websocket02.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = websocket02.cpp; path = ../../src/ripple/unity/websocket02.cpp; sourceTree = "<group>"; };
+		341495E41BA8201C006EFD47 /* websocket04.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = websocket04.cpp; path = ../../src/ripple/unity/websocket04.cpp; sourceTree = "<group>"; };
+		341B4C351B65C8C800A9E6FF /* thrift.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thrift.cpp; path = ../../src/ripple/unity/thrift.cpp; sourceTree = "<group>"; };
+		34373C821A7B770400487CE0 /* libmysqlclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmysqlclient.a; path = /usr/local/lib/libmysqlclient.a; sourceTree = "<absolute>"; };
+		344C100F1BA97369004EE061 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		344C10101BA97369004EE061 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		344C10151BA97F20004EE061 /* soci_mysql.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = soci_mysql.cpp; path = ../../src/ripple/unity/soci_mysql.cpp; sourceTree = "<group>"; };
+		3493343D1A3FE05000418C3F /* beast */ = {isa = PBXFileReference; lastKnownFileType = folder; name = beast; path = ../../src/beast; sourceTree = "<group>"; };
+		3493343F1A3FE05000418C3F /* ripple */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ripple; path = ../../src/ripple; sourceTree = "<group>"; };
+		34971DC11BFDD3A600EA2870 /* unl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = unl.cpp; path = ../../src/ripple/unity/unl.cpp; sourceTree = "<group>"; };
+		525A39B41A9DC46E00847815 /* lz4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lz4.c; path = ../../src/ripple/unity/lz4.c; sourceTree = "<group>"; };
+		529087BB1A7F1BE8008CB1B9 /* hash_unity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = hash_unity.cpp; path = ../../src/beast/beast/unity/hash_unity.cpp; sourceTree = "<group>"; };
+		52A23FD51A7A4501009BB3F0 /* crypto.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = crypto.cpp; path = ../../src/ripple/unity/crypto.cpp; sourceTree = "<group>"; };
+		52A23FE21A7A4501009BB3F0 /* protocol.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = protocol.cpp; path = ../../src/ripple/unity/protocol.cpp; sourceTree = "<group>"; };
+		52A23FE91A7A4501009BB3F0 /* server.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = server.cpp; path = ../../src/ripple/unity/server.cpp; sourceTree = "<group>"; };
+		52A240611A7B7E8D009BB3F0 /* git_id.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = git_id.cpp; path = ../../src/ripple/unity/git_id.cpp; sourceTree = "<group>"; };
+		52A240631A7B7E8D009BB3F0 /* shamap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shamap.cpp; path = ../../src/ripple/unity/shamap.cpp; sourceTree = "<group>"; };
+		52A240B31A7B8A9E009BB3F0 /* ed25519.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ed25519.c; path = ../../src/ripple/unity/ed25519.c; sourceTree = "<group>"; };
+		842440541A13B2B900A37710 /* CFQuantumd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CFQuantumd; sourceTree = BUILT_PRODUCTS_DIR; };
+		8424474F1A13B30200A37710 /* ripple.proto */ = {isa = PBXFileReference; lastKnownFileType = text; name = ripple.proto; path = ../../src/ripple/proto/ripple.proto; sourceTree = "<group>"; };
+		842448191A13B30300A37710 /* basics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = basics.cpp; path = ../../src/ripple/unity/basics.cpp; sourceTree = "<group>"; };
+		8424481A1A13B30300A37710 /* beast.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = beast.cpp; path = ../../src/ripple/unity/beast.cpp; sourceTree = "<group>"; };
+		8424481B1A13B30300A37710 /* beastc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = beastc.c; path = ../../src/ripple/unity/beastc.c; sourceTree = "<group>"; };
+		8424481C1A13B30300A37710 /* beastobjc.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = beastobjc.mm; path = ../../src/ripple/unity/beastobjc.mm; sourceTree = "<group>"; };
+		8424481E1A13B30300A37710 /* core.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = core.cpp; path = ../../src/ripple/unity/core.cpp; sourceTree = "<group>"; };
+		842448251A13B30300A37710 /* json.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = json.cpp; path = ../../src/ripple/unity/json.cpp; sourceTree = "<group>"; };
+		842448291A13B30300A37710 /* net.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = net.cpp; path = ../../src/ripple/unity/net.cpp; sourceTree = "<group>"; };
+		8424482B1A13B30300A37710 /* nodestore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = nodestore.cpp; path = ../../src/ripple/unity/nodestore.cpp; sourceTree = "<group>"; };
+		8424482C1A13B30300A37710 /* overlay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = overlay.cpp; path = ../../src/ripple/unity/overlay.cpp; sourceTree = "<group>"; };
+		8424482D1A13B30300A37710 /* peerfinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = peerfinder.cpp; path = ../../src/ripple/unity/peerfinder.cpp; sourceTree = "<group>"; };
+		8424482E1A13B30300A37710 /* protobuf.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = protobuf.cpp; path = ../../src/ripple/unity/protobuf.cpp; sourceTree = "<group>"; };
+		8424482F1A13B30300A37710 /* resource.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = resource.cpp; path = ../../src/ripple/unity/resource.cpp; sourceTree = "<group>"; };
+		842448311A13B30300A37710 /* ripple.proto.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ripple.proto.cpp; path = ../../src/ripple/unity/ripple.proto.cpp; sourceTree = "<group>"; };
+		842448321A13B30300A37710 /* rocksdb.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rocksdb.cpp; path = ../../src/ripple/unity/rocksdb.cpp; sourceTree = "<group>"; };
+		842448341A13B30300A37710 /* rpcx.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rpcx.cpp; path = ../../src/ripple/unity/rpcx.cpp; sourceTree = "<group>"; };
+		842448371A13B30300A37710 /* snappy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = snappy.cpp; path = ../../src/ripple/unity/snappy.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		842440511A13B2B900A37710 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				344C10131BA97388004EE061 /* AppKit.framework in Frameworks */,
+				344C10141BA97388004EE061 /* Foundation.framework in Frameworks */,
+				3402FD721B65E373009EC7D1 /* libdl.dylib in Frameworks */,
+				3402FD6D1B65E2A1009EC7D1 /* libcrypto.dylib in Frameworks */,
+				3402FD6B1B65E299009EC7D1 /* libssl.dylib in Frameworks */,
+				3402FD691B65E295009EC7D1 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3402FD671B65E279009EC7D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				344C100F1BA97369004EE061 /* AppKit.framework */,
+				344C10101BA97369004EE061 /* Foundation.framework */,
+				3402FD6C1B65E2A1009EC7D1 /* libcrypto.dylib */,
+				3402FD711B65E373009EC7D1 /* libdl.dylib */,
+				34373C821A7B770400487CE0 /* libmysqlclient.a */,
+				3402FD6A1B65E299009EC7D1 /* libssl.dylib */,
+				3402FD681B65E295009EC7D1 /* libz.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3493343C1A3FDFF900418C3F /* build */ = {
+			isa = PBXGroup;
+			children = (
+				341495CC1BA81FA9006EFD47 /* app_ledger.cpp */,
+				341495CD1BA81FA9006EFD47 /* app_main.cpp */,
+				341495CE1BA81FA9006EFD47 /* app_misc.cpp */,
+				341495CF1BA81FA9006EFD47 /* app_paths.cpp */,
+				341495D01BA81FA9006EFD47 /* app_tests.cpp */,
+				341495D11BA81FA9006EFD47 /* app_tx.cpp */,
+				842448191A13B30300A37710 /* basics.cpp */,
+				8424481A1A13B30300A37710 /* beast.cpp */,
+				8424481B1A13B30300A37710 /* beastc.c */,
+				8424481C1A13B30300A37710 /* beastobjc.mm */,
+				8424481E1A13B30300A37710 /* core.cpp */,
+				52A23FD51A7A4501009BB3F0 /* crypto.cpp */,
+				52A240B31A7B8A9E009BB3F0 /* ed25519.c */,
+				52A240611A7B7E8D009BB3F0 /* git_id.cpp */,
+				529087BB1A7F1BE8008CB1B9 /* hash_unity.cpp */,
+				842448251A13B30300A37710 /* json.cpp */,
+				341495DE1BA8201C006EFD47 /* ledger.cpp */,
+				525A39B41A9DC46E00847815 /* lz4.c */,
+				842448291A13B30300A37710 /* net.cpp */,
+				8424482B1A13B30300A37710 /* nodestore.cpp */,
+				8424482C1A13B30300A37710 /* overlay.cpp */,
+				8424482D1A13B30300A37710 /* peerfinder.cpp */,
+				8424482E1A13B30300A37710 /* protobuf.cpp */,
+				52A23FE21A7A4501009BB3F0 /* protocol.cpp */,
+				8424482F1A13B30300A37710 /* resource.cpp */,
+				8424474F1A13B30200A37710 /* ripple.proto */,
+				842448311A13B30300A37710 /* ripple.proto.cpp */,
+				842448321A13B30300A37710 /* rocksdb.cpp */,
+				842448341A13B30300A37710 /* rpcx.cpp */,
+				341495DF1BA8201C006EFD47 /* secp256k1.cpp */,
+				52A23FE91A7A4501009BB3F0 /* server.cpp */,
+				52A240631A7B7E8D009BB3F0 /* shamap.cpp */,
+				842448371A13B30300A37710 /* snappy.cpp */,
+				344C10151BA97F20004EE061 /* soci_mysql.cpp */,
+				341495E01BA8201C006EFD47 /* soci_ripple.cpp */,
+				341495E11BA8201C006EFD47 /* soci.cpp */,
+				341495E21BA8201C006EFD47 /* test.cpp */,
+				341B4C351B65C8C800A9E6FF /* thrift.cpp */,
+				3402FD5B1B65DDF6009EC7D1 /* thrift2.cpp */,
+				3402FD5E1B65DF6A009EC7D1 /* thrift3.cpp */,
+				34971DC11BFDD3A600EA2870 /* unl.cpp */,
+				341495E31BA8201C006EFD47 /* websocket02.cpp */,
+				341495E41BA8201C006EFD47 /* websocket04.cpp */,
+			);
+			name = build;
+			sourceTree = "<group>";
+		};
+		8424404B1A13B2B900A37710 = {
+			isa = PBXGroup;
+			children = (
+				3493343C1A3FDFF900418C3F /* build */,
+				3493343D1A3FE05000418C3F /* beast */,
+				3493343F1A3FE05000418C3F /* ripple */,
+				842440551A13B2B900A37710 /* Products */,
+				3402FD671B65E279009EC7D1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		842440551A13B2B900A37710 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				842440541A13B2B900A37710 /* CFQuantumd */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		842440531A13B2B900A37710 /* CFQuantumd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8424405B1A13B2B900A37710 /* Build configuration list for PBXNativeTarget "CFQuantumd" */;
+			buildPhases = (
+				842440501A13B2B900A37710 /* Sources */,
+				842440511A13B2B900A37710 /* Frameworks */,
+				842440521A13B2B900A37710 /* CopyFiles */,
+			);
+			buildRules = (
+				3414534E1A19D8B50005FD6D /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = CFQuantumd;
+			productName = rippled;
+			productReference = 842440541A13B2B900A37710 /* CFQuantumd */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8424404C1A13B2B900A37710 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "";
+				TargetAttributes = {
+					842440531A13B2B900A37710 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 8424404F1A13B2B900A37710 /* Build configuration list for PBXProject "CFQuantumd" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8424404B1A13B2B900A37710;
+			productRefGroup = 842440551A13B2B900A37710 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				842440531A13B2B900A37710 /* CFQuantumd */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		842440501A13B2B900A37710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3414533F1A19D8390005FD6D /* ripple.proto in Sources */,
+				341495D21BA81FA9006EFD47 /* app_ledger.cpp in Sources */,
+				341495D41BA81FA9006EFD47 /* app_main.cpp in Sources */,
+				341495D61BA81FA9006EFD47 /* app_misc.cpp in Sources */,
+				341495D81BA81FA9006EFD47 /* app_paths.cpp in Sources */,
+				341495DA1BA81FA9006EFD47 /* app_tests.cpp in Sources */,
+				341495DC1BA81FA9006EFD47 /* app_tx.cpp in Sources */,
+				84244BC11A13B36C00A37710 /* core.cpp in Sources */,
+				84244BBC1A13B36C00A37710 /* basics.cpp in Sources */,
+				52A23FF31A7A4587009BB3F0 /* crypto.cpp in Sources */,
+				341495E51BA8201C006EFD47 /* ledger.cpp in Sources */,
+				84244BC71A13B36C00A37710 /* net.cpp in Sources */,
+				84244BC91A13B36C00A37710 /* overlay.cpp in Sources */,
+				84244BCA1A13B36C00A37710 /* peerfinder.cpp in Sources */,
+				84244BC51A13B36C00A37710 /* json.cpp in Sources */,
+				84244BCF1A13B36C00A37710 /* rpcx.cpp in Sources */,
+				52A240651A7B7E8D009BB3F0 /* shamap.cpp in Sources */,
+				341495ED1BA8201C006EFD47 /* test.cpp in Sources */,
+				34971DC21BFDD3A600EA2870 /* unl.cpp in Sources */,
+				84244BC81A13B36C00A37710 /* nodestore.cpp in Sources */,
+				341495EB1BA8201C006EFD47 /* soci.cpp in Sources */,
+				341495E91BA8201C006EFD47 /* soci_ripple.cpp in Sources */,
+				341495E71BA8201C006EFD47 /* secp256k1.cpp in Sources */,
+				52A240641A7B7E8D009BB3F0 /* git_id.cpp in Sources */,
+				52A23FF11A7A4543009BB3F0 /* protocol.cpp in Sources */,
+				529087BC1A7F1BE8008CB1B9 /* hash_unity.cpp in Sources */,
+				84244BBD1A13B36C00A37710 /* beast.cpp in Sources */,
+				34707C071BB0F2A4003D6201 /* lz4.c in Sources */,
+				84244BCB1A13B36C00A37710 /* protobuf.cpp in Sources */,
+				84244BCD1A13B36C00A37710 /* ripple.proto.cpp in Sources */,
+				84244BCC1A13B36C00A37710 /* resource.cpp in Sources */,
+				52A23FF21A7A4543009BB3F0 /* server.cpp in Sources */,
+				341495EF1BA8201C006EFD47 /* websocket02.cpp in Sources */,
+				84244BBE1A13B36C00A37710 /* beastc.c in Sources */,
+				52A240B41A7B8A9E009BB3F0 /* ed25519.c in Sources */,
+				84244BCE1A13B36C00A37710 /* rocksdb.cpp in Sources */,
+				341B4C361B65C8C800A9E6FF /* thrift.cpp in Sources */,
+				3402FD5C1B65DDF6009EC7D1 /* thrift2.cpp in Sources */,
+				3402FD5F1B65DF6A009EC7D1 /* thrift3.cpp in Sources */,
+				84244BD11A13B36C00A37710 /* snappy.cpp in Sources */,
+				341495F11BA8201C006EFD47 /* websocket04.cpp in Sources */,
+				84244BBF1A13B36C00A37710 /* beastobjc.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		34000BE91CE469C40084F5EB /* Debug-MySQL */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = /usr/local/lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					NDEBUG,
+					OPENSSL_NO_SSL2,
+					"BEAST_COMPILE_OBJECTIVE_CPP=1",
+					RADAR_ASYNC_DIVIDEND,
+					"RIPPLE_THRIFT_AVAILABLE=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					../../src,
+					../../src/beast,
+					../../build/proto,
+					../../src/soci/src,
+					../../src/soci/include,
+					../../src/soci/src/core,
+					../../src/soci/include/private,
+					../../src/sqlite,
+					../../src/secp256k1,
+					../../src/rocksdb2/include,
+					../../src/snappy/snappy,
+					../../src/snappy/config,
+					"../../src/ed25519-donna",
+					../../src/websocketpp,
+					../../src/thrift/lib/cpp/src,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lboost_coroutine",
+					"-lboost_context-mt",
+					"-lboost_date_time",
+					"-lboost_filesystem",
+					"-lboost_program_options",
+					"-lboost_regex",
+					"-lboost_system",
+					"-lboost_thread-mt",
+					"-ldl",
+					"-lcrypto",
+					"-lprotobuf",
+					"-lssl",
+					"-levent",
+				);
+				SDKROOT = macosx;
+			};
+			name = "Debug-MySQL";
+		};
+		34000BEA1CE469C40084F5EB /* Debug-MySQL */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"USE_MYSQL=1",
+					"${inherited}",
+				);
+				HEADER_SEARCH_PATHS = (
+					/usr/include/mysql,
+					"$(inherited)",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wall",
+					"-frtti",
+					"-Wno-invalid-offsetof",
+					"-Wno-mismatched-tags",
+					"-Wno-deprecated-register",
+					"-Wno-sign-compare",
+					"-Wno-char-subscripts",
+					"-Wno-format",
+					"-g",
+					"-Wno-redeclared-class-member",
+					"-Wno-deprecated",
+					"-Wno-deprecated-declarations",
+					"-Wno-unused-variable",
+					"-Wno-unused-function",
+					"-fno-strict-aliasing",
+				);
+				OTHER_LDFLAGS = (
+					"-lmysqlclient",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Debug-MySQL";
+		};
+		34000BEC1CE469CB0084F5EB /* Debug-Zookeeper */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = /usr/local/lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					NDEBUG,
+					OPENSSL_NO_SSL2,
+					"BEAST_COMPILE_OBJECTIVE_CPP=1",
+					RADAR_ASYNC_DIVIDEND,
+					"RIPPLE_THRIFT_AVAILABLE=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					../../src,
+					../../src/beast,
+					../../build/proto,
+					../../src/soci/src,
+					../../src/soci/include,
+					../../src/soci/src/core,
+					../../src/soci/include/private,
+					../../src/sqlite,
+					../../src/secp256k1,
+					../../src/rocksdb2/include,
+					../../src/snappy/snappy,
+					../../src/snappy/config,
+					"../../src/ed25519-donna",
+					../../src/websocketpp,
+					../../src/thrift/lib/cpp/src,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lboost_coroutine",
+					"-lboost_context-mt",
+					"-lboost_date_time",
+					"-lboost_filesystem",
+					"-lboost_program_options",
+					"-lboost_regex",
+					"-lboost_system",
+					"-lboost_thread-mt",
+					"-ldl",
+					"-lcrypto",
+					"-lprotobuf",
+					"-lssl",
+					"-levent",
+				);
+				SDKROOT = macosx;
+			};
+			name = "Debug-Zookeeper";
+		};
+		34000BED1CE469CB0084F5EB /* Debug-Zookeeper */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"USE_ZOOKEEPER=1",
+					"${inherited}",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wall",
+					"-frtti",
+					"-Wno-invalid-offsetof",
+					"-Wno-mismatched-tags",
+					"-Wno-deprecated-register",
+					"-Wno-sign-compare",
+					"-Wno-char-subscripts",
+					"-Wno-format",
+					"-g",
+					"-Wno-redeclared-class-member",
+					"-Wno-deprecated",
+					"-Wno-deprecated-declarations",
+					"-Wno-unused-variable",
+					"-Wno-unused-function",
+					"-fno-strict-aliasing",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lzookeeper_mt",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Debug-Zookeeper";
+		};
+		842440591A13B2B900A37710 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = /usr/local/lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					NDEBUG,
+					OPENSSL_NO_SSL2,
+					"BEAST_COMPILE_OBJECTIVE_CPP=1",
+					RADAR_ASYNC_DIVIDEND,
+					"RIPPLE_THRIFT_AVAILABLE=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					../../src,
+					../../src/beast,
+					../../build/proto,
+					../../src/soci/src,
+					../../src/soci/include,
+					../../src/soci/src/core,
+					../../src/soci/include/private,
+					../../src/sqlite,
+					../../src/secp256k1,
+					../../src/rocksdb2/include,
+					../../src/snappy/snappy,
+					../../src/snappy/config,
+					"../../src/ed25519-donna",
+					../../src/websocketpp,
+					../../src/thrift/lib/cpp/src,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lboost_coroutine",
+					"-lboost_context-mt",
+					"-lboost_date_time",
+					"-lboost_filesystem",
+					"-lboost_program_options",
+					"-lboost_regex",
+					"-lboost_system",
+					"-lboost_thread-mt",
+					"-ldl",
+					"-lcrypto",
+					"-lprotobuf",
+					"-lssl",
+					"-levent",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8424405A1A13B2B900A37710 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = /usr/local/lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					OPENSSL_NO_SSL2,
+					"BEAST_COMPILE_OBJECTIVE_CPP=1",
+					RADAR_ASYNC_DIVIDEND,
+					"RIPPLE_THRIFT_AVAILABLE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					../../src,
+					../../src/beast,
+					../../build/proto,
+					../../src/soci/src,
+					../../src/soci/include,
+					../../src/soci/src/core,
+					../../src/soci/include/private,
+					../../src/sqlite,
+					../../src/secp256k1,
+					../../src/rocksdb2/include,
+					../../src/snappy/snappy,
+					../../src/snappy/config,
+					"../../src/ed25519-donna",
+					../../src/websocketpp,
+					../../src/thrift/lib/cpp/src,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-lboost_coroutine",
+					"-lboost_context-mt",
+					"-lboost_date_time",
+					"-lboost_filesystem",
+					"-lboost_program_options",
+					"-lboost_regex",
+					"-lboost_system",
+					"-lboost_thread-mt",
+					"-ldl",
+					"-lcrypto",
+					"-lprotobuf",
+					"-lssl",
+					"-levent",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8424405C1A13B2B900A37710 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wall",
+					"-frtti",
+					"-Wno-invalid-offsetof",
+					"-Wno-mismatched-tags",
+					"-Wno-deprecated-register",
+					"-Wno-sign-compare",
+					"-Wno-char-subscripts",
+					"-Wno-format",
+					"-g",
+					"-Wno-redeclared-class-member",
+					"-Wno-deprecated",
+					"-Wno-deprecated-declarations",
+					"-Wno-unused-variable",
+					"-Wno-unused-function",
+					"-fno-strict-aliasing",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8424405D1A13B2B900A37710 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wall",
+					"-frtti",
+					"-Wno-invalid-offsetof",
+					"-Wno-mismatched-tags",
+					"-Wno-deprecated-register",
+					"-Wno-sign-compare",
+					"-Wno-char-subscripts",
+					"-Wno-format",
+					"-g",
+					"-Wno-redeclared-class-member",
+					"-Wno-deprecated",
+					"-Wno-deprecated-declarations",
+					"-Wno-unused-variable",
+					"-Wno-unused-function",
+					"-fno-strict-aliasing",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8424404F1A13B2B900A37710 /* Build configuration list for PBXProject "CFQuantumd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				842440591A13B2B900A37710 /* Debug */,
+				34000BEC1CE469CB0084F5EB /* Debug-Zookeeper */,
+				34000BE91CE469C40084F5EB /* Debug-MySQL */,
+				8424405A1A13B2B900A37710 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8424405B1A13B2B900A37710 /* Build configuration list for PBXNativeTarget "CFQuantumd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8424405C1A13B2B900A37710 /* Debug */,
+				34000BED1CE469CB0084F5EB /* Debug-Zookeeper */,
+				34000BEA1CE469C40084F5EB /* Debug-MySQL */,
+				8424405D1A13B2B900A37710 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8424404C1A13B2B900A37710 /* Project object */;
+}
