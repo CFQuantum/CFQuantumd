@@ -24,5 +24,10 @@ Source code directory. Some of the directories contained here are
 external repositories inlined via git-subtree, see the corresponding
 README for more details.
 
+### API SDK apply
+For creating 3rd party software or APPs, RPC call is needed by those developers. We provide a simple client API SDK to support it. 
+
+Apply SDK and key for RPC by email: cs@cfquantum.org with title "SDK apply ...". Describe your APP and estimated frequency of RPC in this email.
+
 ### License
 CF is open source and permissively licensed under the ISC license. See the LICENSE file for more details.
