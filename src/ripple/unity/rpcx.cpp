@@ -46,6 +46,7 @@
 #include <ripple/rpc/handlers/CanDelete.cpp>
 #include <ripple/rpc/handlers/Connect.cpp>
 #include <ripple/rpc/handlers/ConsensusInfo.cpp>
+#include <ripple/rpc/handlers/ConsensusType.cpp>
 #include <ripple/rpc/handlers/DividendObject.cpp>
 #include <ripple/rpc/handlers/Feature1.cpp>
 #include <ripple/rpc/handlers/Fee1.cpp>
@@ -71,6 +72,7 @@
 #include <ripple/rpc/handlers/Peers.cpp>
 #include <ripple/rpc/handlers/Ping.cpp>
 #include <ripple/rpc/handlers/Print.cpp>
+#include <ripple/rpc/handlers/QuantumTraining.cpp>
 #include <ripple/rpc/handlers/Random.cpp>
 #include <ripple/rpc/handlers/RipplePathFind.cpp>
 #include <ripple/rpc/handlers/ServerInfo.cpp>

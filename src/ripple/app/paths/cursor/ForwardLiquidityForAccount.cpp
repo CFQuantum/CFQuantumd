@@ -268,46 +268,14 @@ TER PathCursor::forwardLiquidityForAccount () const
 
             STAmount saProvide = node().saFwdRedeem + node().saFwdIssue;
 
-            if (saProvide)
-            {
-                STAmount saTotalSend = previousNode().saFwdRedeem + previousNode().saFwdIssue;
             // Adjust prv --> cur balance : take all inbound
-            resultCode = 
-                  rippleCredit(view(),
+            resultCode = saProvide
+                ? rippleCredit(view(),
                     previousAccountID,
                     node().account_,
-                    saTotalSend,
+                    previousNode().saFwdRedeem + previousNode().saFwdIssue,
                     false, viewJ)
-                    ;
-
-                STAmount saFee = saTotalSend - saProvide;
-                JLOG (j_.trace)
-                    << "\n--------------------"
-                    << "\npreviousNode():" << previousNode().account_
-                    << "\n\tpreviousNode().saFwdRedeem:" << previousNode().saFwdRedeem
-                    << "\n\tpreviousNode().saFwdIssue:" << previousNode().saFwdIssue
-                    << "\nnode():" << node().account_
-                    << "\n\tnode().saFwdRedeem:" << node().saFwdRedeem
-                    << "\n\tnode().saFwdIssue:" << node().saFwdIssue
-                    << "\nsaTotalSend:" << saTotalSend
-                    << "\nsaProvide:" << saProvide
-                    << "\nsaFee:"<< saFee
-                    << "\n--------------------";
-
-//                if (saFee > zero)
-//                {
-//                    // share fee with sender referee
-//                    STAmount saShareRate = STAmount (saFee.issue (), 25, -2);
-//                    STAmount saShareFee = multiply (saFee, saShareRate, saFee.issue ());
-//                    AccountID sender = node (0).account_;
-//                    AccountID issuer = node ().account_;
-//                    resultCode = shareFeeWithReferee (view (), sender, issuer, saShareFee, viewJ);
-//                }
-            }
-            else
-            {
-                resultCode = tecPATH_DRY;
-            }
+                : tecPATH_DRY;
         }
     }
     else if (previousNode().isAccount() && !nextNode().isAccount())
@@ -365,46 +333,13 @@ TER PathCursor::forwardLiquidityForAccount () const
                     uRateMax);
             }
 
-            STAmount& saProvide = node ().saFwdDeliver;
-            if (saProvide)
-            {
-                STAmount saTotalSend = previousNode ().saFwdRedeem + previousNode ().saFwdIssue;
             // Adjust prv --> cur balance : take all inbound
-            resultCode   = 
-                  rippleCredit(view(),
+            resultCode   = node().saFwdDeliver
+                ? rippleCredit(view(),
                     previousAccountID, node().account_,
-                    saTotalSend,
+                    previousNode().saFwdRedeem + previousNode().saFwdIssue,
                     false, viewJ)
-                    ;
-
-                STAmount saFee = saTotalSend - saProvide;
-                JLOG (j_.trace)
-                    << "\n--------------------"
-                    << "\npreviousNode():" << previousNode ().account_
-                    << "\n\tpreviousNode().saFwdRedeem:" << previousNode ().saFwdRedeem
-                    << "\n\tpreviousNode().saFwdIssue:" << previousNode ().saFwdIssue
-                    << "\nnode():" << node ().account_
-                    << "\n\tnode().saFwdRedeem:" << node ().saFwdRedeem
-                    << "\n\tnode().saFwdIssue:" << node ().saFwdIssue
-                    << "\nsaTotalSend:" << saTotalSend
-                    << "\nsaProvide:" << saProvide
-                    << "\nsaFee:" << saFee
-                    << "\n--------------------";
-
-//                if (saFee > zero)
-//                {
-//                    // share fee with sender referee
-//                    STAmount saShareRate = STAmount (saFee.issue (), 25, -2);
-//                    STAmount saShareFee = multiply (saFee, saShareRate, saFee.issue ());
-//                    AccountID sender = node (0).account_;
-//                    AccountID issuer = node ().account_;
-//                    resultCode = shareFeeWithReferee (view (), sender, issuer, saShareFee, viewJ);
-//                }
-            }
-            else
-            {
-                resultCode = tecPATH_DRY;  // Didn't actually deliver anything.
-            }
+                : tecPATH_DRY;  // Didn't actually deliver anything.
         }
         else
         {

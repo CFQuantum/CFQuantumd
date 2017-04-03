@@ -97,7 +97,6 @@ message TMHello
     optional bool           testNet         = 13; // Running as testnet.
     optional uint32         local_ip        = 14; // our public IP
     optional uint32         remote_ip       = 15; // IP we see connection from
-    optional uint32         consensusType   = 51 [default = 0];
 }
 
 // The status of a node in our cluster

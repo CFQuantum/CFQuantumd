@@ -433,9 +433,6 @@ ConnectAttempt::processResponse (beast::http::message const& m,
             std::move(slot_), std::move(response_),
                 usage_, std::move(hello), publicKey, id_, overlay_);
 
-    if (hello.has_consensustype ())
-        peer->setConsensusType (hello.consensustype ());
-    
     overlay_.add_active (peer);
 }
 
