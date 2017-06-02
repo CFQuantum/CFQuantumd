@@ -1756,13 +1756,6 @@ rippleSend (ApplyView& view,
         STAmount saTransitFee = rippleTransferFee (view,
             uSenderID, uReceiverID, issuer, saAmount, j);
 
-        // share upto 25% of TransFee with sender's ancestors (25% * 20% ecah).
-//        if (saTransitFee)
-//        {
-//            STAmount saTransFeeShare = multiply(saTransitFee, STAmount(saTransitFee.issue(), 25, -2), saTransitFee.issue ());
-//            terResult = shareFeeWithReferee(view, uSenderID, issuer, saTransFeeShare, j);
-//        }
-        
         // actualFee = totalFee - ancesterShareFee
         saActual = !saTransitFee ? saAmount : saAmount + saTransitFee;
 

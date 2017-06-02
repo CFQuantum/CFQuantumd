@@ -294,11 +294,6 @@ addRefer (ApplyView& view,
     AccountID const& refereeID, AccountID const& referenceID,
         beast::Journal j);
 
-//TER
-//shareFeeWithReferee (ApplyView& view,
-//    AccountID const& uSenderID, AccountID const& uIssuerID, const STAmount& saAmount,
-//        beast::Journal j);
-
 std::tuple<STAmount, bool>
 assetReleased (ApplyView& view,
     STAmount const& amount,
