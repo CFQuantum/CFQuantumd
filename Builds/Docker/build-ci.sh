@@ -1,13 +1,24 @@
 set -e
 
-mkdir -p build/docker/
-cp doc/rippled-example.cfg build/clang.debug/rippled build/docker/
-cp Builds/Docker/Dockerfile-testnet build/docker/Dockerfile
-mv build/docker/rippled-example.cfg build/docker/rippled.cfg
-strip build/docker/rippled
-docker build -t ripple/rippled:$CIRCLE_SHA1 build/docker/
-docker tag ripple/rippled:$CIRCLE_SHA1 ripple/rippled:latest
+if [ -z "$GIT_SHA1" ]; then
+  GIT_SHA1=`git rev-parse --short HEAD`
+fi
+if [ -z "$PROJECT" ]; then
+  PROJECT=cfq/cfqd
+fi
 
-if [ -z "$CIRCLE_PR_NUMBER" ]; then
-  docker tag ripple/rippled:$CIRCLE_SHA1 ripple/rippled:$CIRCLE_BRANCH
+mkdir -p build/docker/
+
+cp build/rippled Builds/Docker/*.cfg build/docker/
+cp doc/cfqd.logrotate build/docker/rippled.logrotate
+chmod 644 build/docker/rippled.logrotate
+cp Builds/Docker/Dockerfile-testnet build/docker/Dockerfile
+
+strip build/docker/rippled
+
+docker build -t $PROJECT:$GIT_SHA1 build/docker/
+docker tag $PROJECT:$GIT_SHA1 $PROJECT:latest
+
+if [ -n "$BRANCH" ]; then
+  docker tag $PROJECT:$GIT_SHA1 $PROJECT:$BRANCH
 fi

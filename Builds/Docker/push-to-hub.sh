@@ -1,5 +1,12 @@
 set -e
 
+if [ -z "$GIT_SHA1" ]; then
+  GIT_SHA1=`git rev-parse --short HEAD`
+fi
+if [ -z "$PROJECT" ]; then
+  PROJECT=cfq/cfqd
+fi
+
 if [ -z "$DOCKER_EMAIL" -o -z "$DOCKER_USERNAME" -o -z "$DOCKER_PASSWORD" ];then
   echo "Docker credentials are not set. Can't login to docker, no containers will be pushed."
   exit 0
@@ -11,6 +18,8 @@ if [ -n "$CIRCLE_PR_NUMBER" ]; then
 fi
 
 docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-docker push ripple/rippled:$CIRCLE_SHA1
-docker push ripple/rippled:$CIRCLE_BRANCH
-docker push ripple/rippled:latest
+docker push $PROJECT:$GIT_SHA1
+if [ -n "$BRANCH" ]; then
+  docker push $PROJECT:$BRANCH
+fi
+docker push $PROJECT:latest
