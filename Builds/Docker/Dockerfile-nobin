@@ -1,0 +1,17 @@
+FROM ubuntu:14.04
+
+RUN apt-get update &&\
+    apt-get install libmysqlclient18 -y
+
+VOLUME /opt/ripple/bin/
+VOLUME /opt/ripple/data/
+VOLUME /opt/ripple/log/
+
+ENTRYPOINT ["/opt/ripple/bin/rippled"]
+CMD ["--conf", "/opt/ripple/conf/rippled.cfg"]
+EXPOSE 12235/tcp
+EXPOSE 5005/tcp
+EXPOSE 5006/tcp
+
+ADD ./rippled.logrotate /etc/logrotate.d/rippled
+ADD ./*.cfg /opt/ripple/conf/
