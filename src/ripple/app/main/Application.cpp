@@ -1010,6 +1010,53 @@ void ApplicationImp::setup()
 
         startGenesisLedger ();
     }
+    else if (startUp == Config::DUMP)
+    {
+        uint256 uNodeIndex;
+        uNodeIndex.SetHex (config_->DUMP_INDEX);
+        SHAMap map (
+            SHAMapType::TRANSACTION, uint256 (),
+            family ());
+
+        std::shared_ptr<NodeObject> obj = family ().db ().fetch (uNodeIndex);
+        if (obj)
+        {
+            try
+            {
+                auto node = SHAMapAbstractNode::make (
+                    obj->getData (), 0, snfPREFIX, SHAMapHash (uNodeIndex), true, m_journal);
+                if (!node || !node->isLeaf ())
+                    throw "No such node";
+                std::shared_ptr<STTx const> txn;
+                auto item = dynamic_cast<SHAMapTreeNode*> (node.get ())->peekItem ();
+                switch (node->getType ())
+                {
+                case SHAMapInnerNode::tnTRANSACTION_NM:
+                {
+                    SerialIter sit (item->slice ());
+                    txn = std::make_shared<STTx const> (std::ref (sit));
+                    break;
+                }
+                case SHAMapInnerNode::tnTRANSACTION_MD:
+                {
+                    auto blob = SerialIter{item->data (), item->size ()}.getVL ();
+                    txn = std::make_shared<STTx const> (SerialIter{blob.data (), blob.size ()});
+                    break;
+                }
+                }
+                if (txn)
+                {
+                    std::cout << txn->getJson (0) << std::endl;
+                }
+            }
+            catch (std::exception const&)
+            {
+                if (m_journal.warning) m_journal.warning <<
+                    "Invalid DB node " << uNodeIndex;
+            }
+        }
+        exitWithCode(0);
+    }
     else if (startUp == Config::LOAD ||
                 startUp == Config::LOAD_FILE ||
                 startUp == Config::REPLAY)
