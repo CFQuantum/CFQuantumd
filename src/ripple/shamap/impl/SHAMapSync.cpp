@@ -227,6 +227,7 @@ SHAMap::getMissingNodes(std::vector<SHAMapNodeID>& nodeIDs, std::vector<uint256>
                 node->setFullBelowGen (generation);
                 if (backed_)
                     f_.fullbelow().insert (node->getNodeHash ().as_uint256());
+
             }
 
             if (stack.empty ())
@@ -264,6 +265,7 @@ SHAMap::getMissingNodes(std::vector<SHAMapNodeID>& nodeIDs, std::vector<uint256>
             auto const& nodeHash = parent->getChildHash (branch);
 
             auto nodePtr = fetchNodeNT(nodeID, nodeHash, filter);
+
             if (nodePtr)
             {
                 ++hits;
