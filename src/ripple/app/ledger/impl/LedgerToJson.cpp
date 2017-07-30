@@ -90,12 +90,16 @@ void fillJsonTx (Object& json, LedgerFill const& fill)
     auto bBinary = isBinary(fill);
     auto bExpanded = isExpanded(fill);
     auto bDumpDividend = fill.options & LedgerFill::dumpTxdiv;
+    auto bDumpActivate = fill.options & LedgerFill::dumpTxActivate;
 
     try
     {
         for (auto& i: fill.ledger.txs)
         {
             if (!bDumpDividend && i.first->getTxnType () == ttISSUE)
+                continue;
+
+            if (!bDumpActivate && i.first->getTxnType () == ttACTIVATE)
                 continue;
 
             if (! bExpanded)

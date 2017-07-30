@@ -90,6 +90,18 @@ public:
         }
         throw std::runtime_error (std::string ("Connect to hbase failed"));
     }
+    
+    void close ()
+    {
+        try
+        {
+            m_transport->close ();
+        }
+        catch (const apache::thrift::transport::TTransportException& tte)
+        {
+            m_journal.error << "Close transport failed: " << tte.what () << " code " << tte.getType ();
+        }
+    }
 
     apache::hadoop::hbase::thrift::HbaseClient& getClient ()
     {

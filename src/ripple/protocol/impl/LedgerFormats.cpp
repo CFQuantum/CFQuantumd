@@ -40,7 +40,6 @@ LedgerFormats::LedgerFormats ()
             << SOElement (sfMessageKey,          SOE_OPTIONAL)
             << SOElement (sfTransferRate,        SOE_OPTIONAL)
             << SOElement (sfDomain,              SOE_OPTIONAL)
-            
             << SOElement (sfQuantumLinksCount,   SOE_OPTIONAL)
             << SOElement (sfDividendLedger,      SOE_OPTIONAL)
             ;
@@ -153,6 +152,7 @@ LedgerFormats::LedgerFormats ()
             << SOElement (sfQuantumCoins,        SOE_OPTIONAL)    // quantum total coins
             << SOElement (sfQuantumAccounts,     SOE_OPTIONAL)    // quantum total accounts
             << SOElement (sfQuantumEnergy,       SOE_OPTIONAL)    // quantum total energy
+            << SOElement (sfCFCDivCoins,         SOE_OPTIONAL)    // cfc dividend total coins
             ;
 
     // All fields are SOE_REQUIRED because there is always a
