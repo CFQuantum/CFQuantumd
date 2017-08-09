@@ -55,7 +55,7 @@ enum TxType
     
     ttACTIVATE          = 128,
     ttISSUE             = 129,
-    ttADDREFEREE        = 182,
+    ttTRANSFER          = 185,
 };
 
 /** Manages the list of known transaction formats.

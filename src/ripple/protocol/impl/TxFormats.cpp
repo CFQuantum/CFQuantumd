@@ -66,6 +66,12 @@ TxFormats::TxFormats ()
         << SOElement (sfDeliverMin,          SOE_OPTIONAL)
         ;
 
+    add ("Transfer", ttTRANSFER)
+        << SOElement (sfDestination,         SOE_REQUIRED)
+        << SOElement (sfAmount,              SOE_REQUIRED)
+        << SOElement (sfDestinationTag,      SOE_OPTIONAL)
+        ;
+
     add ("SuspendedPaymentCreate", ttSUSPAY_CREATE) <<
         SOElement (sfDestination,       SOE_REQUIRED) <<
         SOElement (sfAmount,            SOE_REQUIRED) <<
@@ -114,8 +120,12 @@ TxFormats::TxFormats ()
         << SOElement (sfDividendType,        SOE_OPTIONAL)
         << SOElement (sfQuantumEnergy,       SOE_OPTIONAL)
         << SOElement (sfQuantumEnergyT,      SOE_OPTIONAL)
+        << SOElement (sfQuantumEnergyC,      SOE_OPTIONAL)
+        << SOElement (sfQuantumTrainingDelta,SOE_OPTIONAL)
         << SOElement (sfQuantumAccounts,     SOE_OPTIONAL)
         << SOElement (sfQuantumActivity,     SOE_OPTIONAL)
+        << SOElement (sfBalance,             SOE_OPTIONAL)
+        << SOElement (sfCFCDivCoins,         SOE_OPTIONAL)
         ;
 
     add("Activate", ttACTIVATE)
@@ -161,3 +171,4 @@ TxFormats::getInstance ()
 }
 
 } // ripple
+    

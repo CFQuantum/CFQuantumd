@@ -50,6 +50,7 @@ bool transResultInfo (TER code, std::string& token, std::string& text)
         { tecUNFUNDED_ADD,           { "tecUNFUNDED_ADD",          "Insufficient XRP balance for WalletAdd."                                       } },
         { tecUNFUNDED_OFFER,         { "tecUNFUNDED_OFFER",        "Insufficient balance to fund created offer."                                   } },
         { tecUNFUNDED_PAYMENT,       { "tecUNFUNDED_PAYMENT",      "Insufficient XRP balance to send."                                             } },
+        { tecUNFUNDED_TRANSFER,      { "tecUNFUNDED_TRANSFER",     "Insufficient balance to transfer."                                             } },
         { tecOWNERS,                 { "tecOWNERS",                "Non-zero owner count."                                                         } },
         { tecNO_ISSUER,              { "tecNO_ISSUER",             "Issuer account does not exist."                                                } },
         { tecNO_AUTH,                { "tecNO_AUTH",               "Not authorized to hold asset."                                                 } },
