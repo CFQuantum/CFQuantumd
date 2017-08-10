@@ -155,6 +155,8 @@ SF_U64 const sfQuantumAccounts  = make::one<SF_U64::type>(&sfQuantumAccounts, ST
 SF_U64 const sfQuantumEnergy    = make::one<SF_U64::type>(&sfQuantumEnergy,   STI_UINT64, 130, "QuantumEnergy");
 SF_U64 const sfQuantumActivity  = make::one<SF_U64::type>(&sfQuantumActivity, STI_UINT64, 131, "QuantumActivity");
 SF_U64 const sfQuantumEnergyT    = make::one<SF_U64::type>(&sfQuantumEnergyT,   STI_UINT64, 132, "QuantumEnergyT");
+SF_U64 const sfQuantumEnergyC    = make::one<SF_U64::type>(&sfQuantumEnergyC,   STI_UINT64, 133, "QuantumEnergyC");
+SF_U64 const sfQuantumTrainingDelta = make::one<SF_U64::type>(&sfQuantumTrainingDelta,STI_UINT64, 134, "QuantumTrainingDelta");
 
 // 128-bit
 SF_U128 const sfEmailHash = make::one<SF_U128::type>(&sfEmailHash, STI_HASH128, 1, "EmailHash");
@@ -198,6 +200,7 @@ SF_Amount const sfDeliverMin  = make::one<SF_Amount::type>(&sfDeliverMin,  STI_A
 
 SF_Amount const sfBalanceXRS  = make::one<SF_Amount::type>(&sfBalanceXRS,  STI_AMOUNT, 181, "BalanceXRS");
 SF_Amount const sfReserve     = make::one<SF_Amount::type>(&sfReserve,     STI_AMOUNT, 182, "Reserve");
+SF_Amount const sfCFCDivCoins = make::one<SF_Amount::type>(&sfCFCDivCoins, STI_AMOUNT, 183, "CFCDivCoins");
 
 // currency amount (uncommon)
 SF_Amount const sfMinimumOffer    = make::one<SF_Amount::type>(&sfMinimumOffer,    STI_AMOUNT, 16, "MinimumOffer");

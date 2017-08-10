@@ -402,7 +402,10 @@ extern SF_U64 const sfHighNode;
 extern SF_U64 const sfQuantumCoins;
 extern SF_U64 const sfQuantumAccounts;
 extern SF_U64 const sfQuantumEnergy;
+extern SF_U64 const sfQuantumEnergyC;
+extern SF_U64 const sfQuantumEnergyT;
 extern SF_U64 const sfQuantumActivity;
+extern SF_U64 const sfQuantumTrainingDelta;
 
 // 128-bit
 extern SF_U128 const sfEmailHash;
@@ -450,6 +453,7 @@ extern SF_Amount const sfMinimumOffer;
 extern SF_Amount const sfRippleEscrow;
 extern SF_Amount const sfDeliveredAmount;
 extern SF_Amount const sfReserve;
+extern SF_Amount const sfCFCDivCoins;
 
 // variable length (common)
 extern SF_Blob const sfPublicKey;

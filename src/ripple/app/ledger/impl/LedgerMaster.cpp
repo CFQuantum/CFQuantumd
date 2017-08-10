@@ -894,13 +894,6 @@ public:
             {
                 return;
             }
-            int dividendState = dividendObj->getFieldU8(sfDividendState);
-
-            if (dividendState == DividendMaster::DivState_Done)
-            {
-                // dividend has already finished or not started.
-                return;
-            }
             
             auto const& dividendAccount = app_.config ()[SECTION_QUANTUM];
             std::string secret_key = get<std::string> (dividendAccount, "secret_key");

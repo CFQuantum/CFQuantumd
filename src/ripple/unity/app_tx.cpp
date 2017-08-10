@@ -29,6 +29,7 @@
 #include <ripple/app/tx/impl/CreateTicket.cpp>
 #include <ripple/app/tx/impl/OfferStream.cpp>
 #include <ripple/app/tx/impl/Payment.cpp>
+#include <ripple/app/tx/impl/Transfer.cpp>
 #include <ripple/app/tx/impl/SetAccount.cpp>
 #include <ripple/app/tx/impl/SetRegularKey.cpp>
 #include <ripple/app/tx/impl/SetSignerList.cpp>
@@ -41,4 +42,3 @@
 
 #include <ripple/app/tx/impl/Activate.cpp>
 #include <ripple/app/tx/impl/Dividend.cpp>
-#include <ripple/app/tx/impl/IssueAsset.cpp>
