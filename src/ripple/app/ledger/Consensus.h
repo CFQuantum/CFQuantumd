@@ -84,6 +84,19 @@ public:
     storeProposal (
         LedgerProposal::ref proposal,
         RippleAddress const& peerPublic) = 0;
+
+public:
+    enum Type
+    {
+        Ripple = 0,
+        ZooKeeper = 1,
+    };
+
+    static Type getConsensusType () { return s_type; }
+    static void setConsensusType (Type type) { s_type = type; }
+
+private:
+    static std::atomic<Type> s_type;
 };
 
 std::unique_ptr<Consensus>

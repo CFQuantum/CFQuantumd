@@ -1,24 +1,5 @@
-//------------------------------------------------------------------------------
-/*
-    This file is part of rippled: https://github.com/ripple/rippled
-    Copyright (c) 2012, 2013 Ripple Labs Inc.
-
-    Permission to use, copy, modify, and/or distribute this software for any
-    purpose  with  or without fee is hereby granted, provided that the above
-    copyright notice and this permission notice appear in all copies.
-
-    THE  SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-    WITH  REGARD  TO  THIS  SOFTWARE  INCLUDING  ALL  IMPLIED  WARRANTIES  OF
-    MERCHANTABILITY  AND  FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-    ANY  SPECIAL ,  DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-    WHATSOEVER  RESULTING  FROM  LOSS  OF USE, DATA OR PROFITS, WHETHER IN AN
-    ACTION  OF  CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-    OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-*/
-//==============================================================================
-
-#ifndef RIPPLE_APP_LEDGER_IMPL_LEDGERCONSENSUSIMP_H_INCLUDED
-#define RIPPLE_APP_LEDGER_IMPL_LEDGERCONSENSUSIMP_H_INCLUDED
+#ifndef RIPPLE_APP_LEDGER_IMPL_LEDGERCONSENSUSZK_H_INCLUDED
+#define RIPPLE_APP_LEDGER_IMPL_LEDGERCONSENSUSZK_H_INCLUDED
 
 #include <BeastConfig.h>
 #include <ripple/app/ledger/LedgerMaster.h>
@@ -34,51 +15,20 @@
 namespace ripple {
 
 /**
-  Provides the implementation for LedgerConsensus.
-
-  Achieves consensus on the next ledger.
-  This object is created when the consensus process starts, and
-  is destroyed when the process is complete.
-
-  Nearly everything herein is invoked with the master lock.
-
-  Two things need consensus:
-    1.  The set of transactions.
-    2.  The close time for the ledger.
+  ZooKeeper based implementation for LedgerConsensus.
 */
-class LedgerConsensusImp
+class LedgerConsensusZk
     : public LedgerConsensus
-    , public std::enable_shared_from_this <LedgerConsensusImp>
-    , public CountedObject <LedgerConsensusImp>
+    , public std::enable_shared_from_this <LedgerConsensusZk>
+    , public CountedObject <LedgerConsensusZk>
 {
-private:
-    enum class State
-    {
-        // We haven't closed our ledger yet, but others might have
-        open,
-
-        // Establishing consensus
-        establish,
-
-        // We have closed on a transaction set
-        finished,
-
-        // We have accepted / validated a new last closed ledger
-        accepted,
-    };
-
 public:
-    /**
-     * The result of applying a transaction to a ledger.
-    */
-    enum {resultSuccess, resultFail, resultRetry};
-
     static char const* getCountedObjectName () { return "LedgerConsensus"; }
 
-    LedgerConsensusImp(LedgerConsensusImp const&) = delete;
-    LedgerConsensusImp& operator=(LedgerConsensusImp const&) = delete;
+    LedgerConsensusZk(LedgerConsensusZk const&) = delete;
+    LedgerConsensusZk& operator=(LedgerConsensusZk const&) = delete;
 
-    ~LedgerConsensusImp () = default;
+    ~LedgerConsensusZk () = default;
 
     /**
         @param previousProposers the number of participants in the last round
@@ -92,7 +42,7 @@ public:
         @param closeTime Closing time point of the LCL.
         @param feeVote Our desired fee levels and voting logic.
     */
-    LedgerConsensusImp (
+    LedgerConsensusZk (
         Application& app,
         ConsensusImp& consensus,
         int previousProposers,
@@ -100,12 +50,10 @@ public:
         InboundTransactions& inboundTransactions,
         LocalTxs& localtx,
         LedgerMaster& ledgerMaster,
-        LedgerHash const & prevLCLHash,
+        LedgerHash const& prevLCLHash,
         Ledger::ref previousLedger,
         std::uint32_t closeTime,
         FeeVote& feeVote);
-
-    static bool onSetup (Application& app);
 
     /**
       Get the Json state of the consensus process.
@@ -132,6 +80,44 @@ public:
         bool acquired) override;
 
     /**
+      On timer call the correct handler for each state.
+    */
+    void timerEntry () override;
+
+    /**
+      A server has taken a new position, adjust our tracking
+      Called when a peer takes a new postion.
+
+      @param newPosition the new position
+      @return            true if we should do delayed relay of this position.
+    */
+    bool peerPosition (LedgerProposal::ref newPosition) override;
+
+    void simulate () override;
+
+private:
+    enum class State
+    {
+        // We haven't closed our ledger yet, but others might have
+        open,
+
+        // Establishing consensus
+        establish,
+
+        // We have closed on a transaction set
+        finished,
+
+        // We have accepted / validated a new last closed ledger
+        accepted,
+    };
+
+public:
+    /**
+     * The result of applying a transaction to a ledger.
+    */
+    enum {resultSuccess, resultFail, resultRetry};
+
+    /**
       Check if our last closed ledger matches the network's.
       This tells us if we are still in sync with the network.
       This also helps us if we enter the consensus round with
@@ -146,11 +132,6 @@ public:
       @param lclHash Hash of the last closed ledger.
     */
     void handleLCL (uint256 const& lclHash);
-
-    /**
-      On timer call the correct handler for each state.
-    */
-    void timerEntry () override;
 
     /**
       Handle pre-close state.
@@ -172,16 +153,6 @@ public:
 
     std::shared_ptr<SHAMap> getTransactionTree (uint256 const& hash);
 
-    /**
-      A server has taken a new position, adjust our tracking
-      Called when a peer takes a new postion.
-
-      @param newPosition the new position
-      @return            true if we should do delayed relay of this position.
-    */
-    bool peerPosition (LedgerProposal::ref newPosition) override;
-
-    void simulate () override;
 
 private:
     /**
@@ -346,12 +317,16 @@ private:
     // nodes that have bowed out of this consensus process
     hash_set<NodeID> mDeadNodes;
     beast::Journal j_;
+
+private:
+    static std::string s_hosts;
+    static const char* s_zkPath;
 };
 
 //------------------------------------------------------------------------------
 
 std::shared_ptr <LedgerConsensus>
-make_LedgerConsensus (Application& app, ConsensusImp& consensus, int previousProposers,
+make_LedgerConsensusZk (Application& app, ConsensusImp& consensus, int previousProposers,
     int previousConvergeTime, InboundTransactions& inboundTransactions,
     LocalTxs& localtx, LedgerMaster& ledgerMaster,
     LedgerHash const &prevLCLHash, Ledger::ref previousLedger,

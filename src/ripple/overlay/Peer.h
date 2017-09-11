@@ -46,9 +46,6 @@ public:
     using id_t = std::uint32_t;
 
     virtual ~Peer() = default;
-    
-    virtual
-    std::uint32_t getConsensusType () const = 0;
 
     //
     // Network

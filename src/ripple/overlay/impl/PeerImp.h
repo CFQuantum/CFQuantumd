@@ -163,8 +163,6 @@ private:
     std::unique_ptr <LoadEvent> load_event_;
     bool hopsAware_ = false;
 
-    uint32_t consensusType_ = 0;
-
     friend class OverlayImpl;
 
 public:
@@ -329,16 +327,6 @@ public:
 
     void
     fail(std::string const& reason);
-
-    std::uint32_t getConsensusType () const
-    {
-        return consensusType_;
-    }
-
-    void setConsensusType (uint32_t consensusType)
-    {
-        consensusType_ = consensusType;
-    }
 
 private:
     void

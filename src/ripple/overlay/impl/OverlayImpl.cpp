@@ -272,9 +272,6 @@ OverlayImpl::onHandoff (std::unique_ptr <beast::asio::ssl_bundle>&& ssl_bundle,
     auto const peer = std::make_shared<PeerImp>(app_, id,
         remote_endpoint, slot, std::move(request), hello, publicKey,
             consumer, std::move(ssl_bundle), *this);
-
-    if (hello.has_consensustype ())
-        peer->setConsensusType (hello.consensustype ());
     {
         // As we are not on the strand, run() must be called
         // while holding the lock, otherwise new I/O can be

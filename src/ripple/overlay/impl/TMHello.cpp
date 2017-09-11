@@ -31,7 +31,6 @@
 #include <beast/module/core/text/LexicalCast.h>
 #include <boost/regex.hpp>
 #include <algorithm>
-#include <ripple/app/ledger/impl/LedgerConsensusImp.h>
 
 // VFALCO Shouldn't we have to include the OpenSSL
 // headers or something for SSL_get_finished?
@@ -155,8 +154,6 @@ buildHello (
         h.set_ledgerprevious (hash.begin (), hash.size ());
     }
 
-    h.set_consensustype (LedgerConsensusImp::getConsensusType ());
-
     return h;
 }
 
@@ -194,9 +191,6 @@ appendHello (beast::http::message& m,
     if (hello.has_remote_ip())
         h.append ("Remote-IP", beast::IP::to_string (
             beast::IP::AddressV4(hello.remote_ip())));
-
-    if (hello.has_consensustype())
-        h.append ("Consensus-Type", std::to_string (hello.consensustype ()));
 }
 
 std::vector<ProtocolVersion>
@@ -348,17 +342,6 @@ parseHello (beast::http::message const& m, beast::Journal journal)
                 return result;
             if (address.is_v4())
                 hello.set_remote_ip(address.to_v4().value);
-        }
-    }
-
-    {
-        auto const iter = h.find ("Consensus-Type");
-        if (iter != h.end())
-        {
-            std::uint32_t consensusType;
-            if (! beast::lexicalCastChecked(consensusType, iter->second))
-                return result;
-            hello.set_consensustype (consensusType);
         }
     }
 

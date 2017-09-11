@@ -38,6 +38,7 @@ Json::Value doBookOffers            (RPC::Context&);
 Json::Value doCanDelete             (RPC::Context&);
 Json::Value doConnect               (RPC::Context&);
 Json::Value doConsensusInfo         (RPC::Context&);
+Json::Value doConsensusType         (RPC::Context&);
 Json::Value doDividendObject        (RPC::Context&);
 Json::Value doFeature               (RPC::Context&);
 Json::Value doFee                   (RPC::Context&);
@@ -62,6 +63,7 @@ Json::Value doPathFind              (RPC::Context&);
 Json::Value doPeers                 (RPC::Context&);
 Json::Value doPing                  (RPC::Context&);
 Json::Value doPrint                 (RPC::Context&);
+Json::Value doQuantumTraining       (RPC::Context&);    // calc quantum trainingAmount
 Json::Value doRandom                (RPC::Context&);
 Json::Value doRipplePathFind        (RPC::Context&);
 Json::Value doServerInfo            (RPC::Context&); // for humans

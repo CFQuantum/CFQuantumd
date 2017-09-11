@@ -18,11 +18,39 @@
 //==============================================================================
 
 #include <BeastConfig.h>
+#include <ripple/core/ConfigSections.h>
 #include <ripple/app/ledger/LedgerTiming.h>
 #include <ripple/app/ledger/impl/ConsensusImp.h>
 #include <ripple/app/ledger/impl/LedgerConsensusImp.h>
+#if USE_ZOOKEEPER
+#include <ripple/app/ledger/impl/LedgerConsensusZk.h>
+#endif
+#include <ripple/unity/zookeeper.h>
 
 namespace ripple {
+
+std::atomic<Consensus::Type> Consensus::s_type (Consensus::Type::Ripple);
+
+bool ConsensusImp::onSetup (Application& app)
+{
+    if (!app.config ().exists (SECTION_CONSENSUS))
+        return true;
+
+    auto type = get<std::string> (app.config ().section (SECTION_CONSENSUS), "type", "ripple");
+    if (type.compare ("Ripple") == 0)
+        Consensus::setConsensusType (Consensus::Type::Ripple);
+    else if (type.compare ("ZooKeeper") == 0)
+    {
+#if USE_ZOOKEEPER
+        Consensus::setConsensusType (Consensus::Type::ZooKeeper);
+#else
+        JLOG (app.journal ("Consensus").error) << "ZooKeeper based consensus used but not compiled";
+        return false;
+#endif
+    }
+
+    return true;
+}
 
 ConsensusImp::ConsensusImp (
         FeeVote::Setup const& voteSetup,
@@ -73,9 +101,21 @@ ConsensusImp::startRound (
     Ledger::ref previousLedger,
     std::uint32_t closeTime)
 {
+    switch (Consensus::getConsensusType())
+    {
+    case Consensus::Type::ZooKeeper:
+#if USE_ZOOKEEPER
+        return make_LedgerConsensusZk (app, *this, lastCloseProposers_,
+                                       lastCloseConvergeTook_, inboundTransactions, localtx, ledgerMaster,
+                                       prevLCLHash, previousLedger, closeTime, *feeVote_);
+#else
+        JLOG (app.journal ("Consensus").warning) << "ZooKeeper based consensus used but not compiled, fallback to normal consensus";
+#endif
+    case Consensus::Type::Ripple:
     return make_LedgerConsensus (app, *this, lastCloseProposers_,
         lastCloseConvergeTook_, inboundTransactions, localtx, ledgerMaster,
         prevLCLHash, previousLedger, closeTime, *feeVote_);
+    }
 }
 
 

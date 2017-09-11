@@ -34,11 +34,14 @@ namespace ripple {
 /** Implements the consensus process and provides inter-round state. */
 class ConsensusImp
     : public Consensus
+    , private Application::SetupListener <ConsensusImp>
 {
 public:
     ConsensusImp (FeeVote::Setup const& voteSetup, Logs& logs);
 
     ~ConsensusImp () = default;
+
+    static bool onSetup (Application& app);
 
     bool
     isProposing () const override;
