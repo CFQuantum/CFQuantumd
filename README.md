@@ -54,7 +54,7 @@ email|YES|activate Email|email=test@gmail.com
  You may pay directly, while sending from your mobile. And every 20 times, you have to be verifid by Google two-factor authentication.
 ##### Parameters:
 Parameter|Optional|content|type|Description
-----|----|----|----|----|----
+----|----|----|----|----
 json|true|recipient_addr|String|account address or nickname
 |||selectedCurrency|String|currencyCode
 |||amount|String|amount of payment 
@@ -128,7 +128,7 @@ dynamicPassword=1234
 ##### Method:`POST` 
 ##### Parameters:
 
- |Parameter|Optional|Type|Description
+----|Parameter|Optional|Type|Description
 ----|----|----|----|----
 json|amount|YES|Double|
 ||orderType|YES|Integer|2:withdraw
