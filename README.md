@@ -48,7 +48,7 @@ email|YES|activate Email|email=test@gmail.com
 
 
 #### 4. Payment
-##### URL: `https:// www.cfquantum.org/api/tx/auth2/make`
+##### URL: `https://www.cfquantum.org/api/tx/auth2/make`
 ##### Method: `POST`
 ##### Description:
  You may pay directly, while sending from your mobile. And every 20 times, you have to be verifid by Google two-factor authentication.
@@ -124,7 +124,7 @@ dynamicPassword=1234
 
 #### 9.withdraw
 
-##### URL:`https://www.cfquantum.org/api/agent/auth2/order？`
+##### URL:`https://www.cfquantum.org/api/agent/auth2/order`
 ##### Method:`POST` 
 ##### Parameters:
 
@@ -134,7 +134,7 @@ json|amount|YES|Double|
 ||orderType|YES|Integer|2:withdraw
 ||firstCurrency|YES|String|
 ||secondCurrency|YES|String|
-||payType|YES|String|paypal、card、other
+||payType|YES|String|paypal,card,other
 ||description|NO|String|
 dynamic<br>Password||false|String|
 
