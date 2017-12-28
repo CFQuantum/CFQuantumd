@@ -71,14 +71,7 @@ Parameter|Optional|Description|Example
 ----|----|----|----
 maker|YES|set null|maker=null
 
-#### 6. Get account dividend info
-
-##### URL: `https://www.cfquantum.org/api/user/getDividendData`
-##### Method： `GET`
-##### Parameters: `None`
-##### Description: Get account's dividend info last few days.
-
-#### 7. Get book offers
+#### 6. Get book offers
 ##### URL: `https://www.cfquantum.org/api/tx/book_offers`
 ##### Method： `GET`
 ##### Parameters: 
@@ -91,7 +84,7 @@ issuer2|YES|issuer of USD is<br>"chaQfQJHfCWaCgRdx327RhZoJuaK5q87kS"<br>issuer o
 limit|YES|display number
 
 
-#### 8. Make a offer
+#### 7. Make a offer
 
 ##### URL:`https://www.cfquantum.org/api/tx/make_offer?`
 ##### Method: `POST`
@@ -122,7 +115,7 @@ json={
 dynamicPassword=1234
 ```
 
-#### 9.withdraw
+#### 8.withdraw
 
 ##### URL:`https://www.cfquantum.org/api/agent/auth2/order`
 ##### Method:`POST` 
@@ -137,6 +130,9 @@ json|amount|YES|Double|
 ||payType|YES|String|paypal,card,other
 ||description|NO|String|
 dynamic<br>Password||false|String|
+
+
+#### ......
 
 
 Apply SDK and key for RPC by email: cs@cfquantum.org with title "SDK apply ...". Describe your APP and estimated frequency of RPC in this email.
